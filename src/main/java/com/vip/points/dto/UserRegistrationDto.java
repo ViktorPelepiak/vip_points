@@ -1,3 +1,4 @@
+/*
 package com.vip.points.dto;
 
 import java.time.LocalDate;
@@ -78,3 +79,4 @@ public class UserRegistrationDto {
         return this;
     }
 }
+*/
