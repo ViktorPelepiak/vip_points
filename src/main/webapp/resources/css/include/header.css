@@ -1,0 +1,82 @@
+.header-property-btn {
+    border-radius: 3rem;
+    width: 8rem;
+    font-size: 12px;
+    color: white;
+}
+
+.header-text {
+    font-size: 1rem;
+}
+
+.header-dropdown {
+    font-size: 1rem;
+}
+
+.header-logo {
+    margin-bottom: -1rem;
+    width: 6rem;
+    z-index: 99;
+    position: relative;
+}
+
+.header-beta {
+    margin-bottom: -1rem;
+    z-index: 99;
+    position: relative;
+    width: 4rem;
+}
+
+.contact-us-modal {
+    background: #f9f9f9;
+    border-radius: 10px;
+    text-align: center;
+}
+
+@media screen and (max-device-width: 720px) {
+    .header-property-btn {
+        display: none;
+    }
+
+    .header-text {
+        font-size: 1.7rem;
+    }
+
+    .header-dropdown {
+        font-size: 1.7rem;
+    }
+
+    .header-logo {
+        width: 9rem;
+    }
+
+    .header-beta {
+        margin-top: 2rem;
+        margin-left: -2rem;
+        width: 6rem;
+    }
+
+    .header-links {
+        font-size: 2rem;
+    }
+
+    .contact-us-modal {
+        margin-top: 10rem;
+    }
+
+    .contact-us-modal-body {
+        margin-top: 10rem;
+        background: #f9f9f9;
+        transform: scale(2);
+    }
+
+    .profile-dropdown {
+        width: 200%;
+        font-size: 3rem;
+    }
+
+    .profile-dropdown > .dropdown-item {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+}
