@@ -55,8 +55,7 @@ public class UserController {
     }
 
     @GetMapping("/checkEmailAndPhoneAvailable")
-    public GenericResponse checkEmailAndPhoneAvailable(@RequestParam(name = "email") String email,
-                                                       @RequestParam(name = "phoneNumber") String phoneNumber) {
-        return GenericResponse.of(userService.checkEmailAndPhoneAvailable(email, phoneNumber));
+    public GenericResponse checkEmailAndPhoneAvailable(@RequestParam(name = "email") String email) {
+        return GenericResponse.of(userService.checkEmailAvailable(email));
     }
 }

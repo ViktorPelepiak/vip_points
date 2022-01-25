@@ -25,29 +25,29 @@ public class TestDataUtil {
 
 
     public void generateTestData(){
-        userRoleRepository.save(new UserRole().setRoleName(UserRole.DISPATCHER));
-        userRoleRepository.save(new UserRole().setRoleName(UserRole.ADMIN));
-
-        userService.registration(
-                new UserRegistrationDto()
-                .setName("admin")
-                .setPhoneNumber("+380999999999")
-                .setEmail("admin@gmail.com")
-                .setEnabled(true)
-                .setDateOfBirth(LocalDate.of(1998,10,20))
-                .setPassword("admin")
-                .setRole(UserRole.ADMIN)
-        );
-
-        userService.registration(
-                new UserRegistrationDto()
-                .setName("dispatcher")
-                .setPhoneNumber("+380999999999")
-                .setEmail("dispatcher@gmail.com")
-                .setEnabled(true)
-                .setDateOfBirth(LocalDate.of(1998,10,20))
-                .setPassword("dispatcher")
-                .setRole(UserRole.DISPATCHER)
-        );
+//        userRoleRepository.save(new UserRole().setRoleName(UserRole.DISPATCHER));
+//        userRoleRepository.save(new UserRole().setRoleName(UserRole.ADMIN));
+//
+//        userService.registration(
+//                new UserRegistrationDto()
+//                .setName("admin")
+//                .setPhoneNumber("+380999999999")
+//                .setEmail("admin@gmail.com")
+//                .setEnabled(true)
+//                .setDateOfBirth(LocalDate.of(1998,10,20))
+//                .setPassword("admin")
+//                .setRole(UserRole.ADMIN)
+//        );
+//
+//        userService.registration(
+//                new UserRegistrationDto()
+//                .setName("dispatcher")
+//                .setPhoneNumber("+380999999999")
+//                .setEmail("dispatcher@gmail.com")
+//                .setEnabled(true)
+//                .setDateOfBirth(LocalDate.of(1998,10,20))
+//                .setPassword("dispatcher")
+//                .setRole(UserRole.DISPATCHER)
+//        );
     }
 }

@@ -1,4 +1,3 @@
-/*
 package com.vip.points.dto;
 
 public class LoginDto {
@@ -24,4 +23,3 @@ public class LoginDto {
         return this;
     }
 }
-*/

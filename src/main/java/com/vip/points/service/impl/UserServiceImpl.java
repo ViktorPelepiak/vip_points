@@ -58,7 +58,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-        return userRepository.findByLogin(login);
+        return userRepository.findByEmail(login);
     }
 
     public User login(LoginDto loginDto) {
@@ -76,7 +76,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
             return user;
         } catch (BadCredentialsException | InternalAuthenticationServiceException ex) {
-            User user = userRepository.findByLogin(loginDto.getLogin());
+            User user = userRepository.findByEmail(loginDto.getLogin());
 
             if (user != null) {
                 int failCount = user.getFailLoginAttempts() != null ? user.getFailLoginAttempts() : 0;
@@ -99,12 +99,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public User registration(UserRegistrationDto registrationDto) {
         User user = userRepository.save(new User()
-                .setNameOnSite(registrationDto.getName())
                 .setEmail(registrationDto.getEmail())
-                .setPhoneNumber(registrationDto.getPhoneNumber())
                 .setPassword(passwordEncoder.encode(registrationDto.getPassword()))
                 .setRole(roleRepository.findByRoleName(registrationDto.getRole()))
-                .setDateOfBirth(registrationDto.getDateOfBirth())
                 .setEnabled(registrationDto.isEnabled())
                 .setDateLocked(null)
                 .setFailLoginAttempts(0));
@@ -121,16 +118,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public User editCurrentUser(UserDto userDto) {
         User user = LoggedUserUtil.getLoggedUser().orElse(null);
         if (user != null) {
-            user.setEmail(userDto.getEmail())
-                    .setPhoneNumber(userDto.getPhoneNumber())
-                    .setNameOnSite(userDto.getNameOnSite());
-            if (userDto.getDobDay() != null) {
-                user.setDateOfBirth(LocalDate.of(
-                        userDto.getDobYear(),
-                        userDto.getDobMonth(),
-                        userDto.getDobDay()
-                ));
-            }
+            user.setEmail(userDto.getEmail());
             userRepository.save(user);
         }
         return user;
@@ -151,7 +139,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public boolean checkEmailAndPhoneAvailable(String email, String phoneNumber) {
-        return userRepository.findByEmailOrPhoneNumber(email, phoneNumber) == null;
+    public boolean checkEmailAvailable(String email) {
+        return userRepository.findByEmail(email) == null;
     }
 }

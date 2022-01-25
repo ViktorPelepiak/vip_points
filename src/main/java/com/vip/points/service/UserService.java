@@ -19,5 +19,5 @@ public interface UserService {
 
     User getById(Long id);
 
-    boolean checkEmailAndPhoneAvailable(String email, String phoneNumber);
+    boolean checkEmailAvailable(String email);
 }
